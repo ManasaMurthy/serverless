@@ -1,0 +1,10 @@
+#!groovy
+
+node{
+    ws("/var/lib/jenkins/workspace/Configure-Project") {
+        dir("${Service}") {
+           sh "serverless remove --aws-profile ${params.profile}"
+        }
+    }
+    
+}
