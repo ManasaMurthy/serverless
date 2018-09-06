@@ -1,0 +1,4 @@
+#!groovy
+node{
+    sh "serverless install --url ${params.url} --name ${params.service}"
+}
