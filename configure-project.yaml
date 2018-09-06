@@ -3,7 +3,6 @@ node{
     sh "serverless install --url ${params.url} --name ${params.service}"
     def file = new File("${env.WORKSPACE}/service")
     sh "echo ${params.service} >> ${file}"
-    git checkout master
-    git commit -am "updated service file"
-    git push
+     sh('git remote set-url origin https://github.com/ManasaMurthy/serverless.git')
+      sh "git push"
 }
