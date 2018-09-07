@@ -1,6 +1,6 @@
 #!groovy
 node{
-    dir(${service}){
+    dir(env.service){
         deleteDir
     }
     sh "serverless install --url ${params.url} --name ${params.service}"
