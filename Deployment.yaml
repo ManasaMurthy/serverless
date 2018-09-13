@@ -4,7 +4,7 @@ node{
     cleanWs()
     try{
       git(
-          url: "git@gitlab.com:ManasaMurthy/aws-node-simple-http-endpoint.git",
+          url: "git@gitlab.com:ManasaMurthy/${REPO_NAME}.git",
           credentialsId: 'jenkins-token',
           branch: 'master'
       )
