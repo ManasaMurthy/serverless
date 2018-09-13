@@ -1,5 +1,13 @@
 #!groovy
+stage 'Install Project'
 node{
     cleanWs()
     sh 'git clone git@gitlab.com:ManasaMurthy/${REPO_NAME}.git'
 }
+stage 'Deploy'
+node{
+     dir("${Service}") {
+               sh "serverless deploy --aws-profile ${params.profile}"
+        }
+}
+
