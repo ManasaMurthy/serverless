@@ -2,6 +2,9 @@
 stage 'Install Project'
 node{
     //cleanWs()
+    dir("${REPO_NAME}"){
+   	   deleteDir()
+     }
    /* try{
       git(
           url: "git@gitlab.com:ManasaMurthy/${REPO_NAME}.git",
