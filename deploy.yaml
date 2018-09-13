@@ -3,7 +3,7 @@
 node{
     cleanWs()
  
-    ws("/var/lib/jenkins/workspace/Configure-Project") {
+    ws("/var/lib/jenkins/workspace/gitlab") {
         dir("${Service}") {
                sh "serverless deploy --aws-profile ${params.profile}"
         }
