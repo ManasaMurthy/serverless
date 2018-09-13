@@ -1,7 +1,7 @@
 #!groovy
 stage 'Install Project'
 node{
-    cleanWs()
+    //cleanWs()
    /* try{
       git(
           url: "git@gitlab.com:ManasaMurthy/${REPO_NAME}.git",
