@@ -1,34 +1,20 @@
 #!groovy
 stage 'Install Project'
 node{
-    //cleanWs()
     dir("${REPO_NAME}"){
    	   deleteDir()
      }
-   /* try{
-      git(
-          url: "git@gitlab.com:ManasaMurthy/${REPO_NAME}.git",
-          credentialsId: 'jenkins-token',
-          branch: 'master'
-      )
-    }catch(Exception e){
-        currentBuild.result = 'FAILURE'
-        throw e
-    }*/
     sh 'git clone git@gitlab.com:ManasaMurthy/${REPO_NAME}.git'
 }
 
 stage 'Deploy'
 node{
      dir("${REPO_NAME}") {
-                if(env.WEB_PAGE_DEPLOYMENT_REQUIRED == 'true'){
-                    sh 'node generate-form.js'
-                }
-               //sh "serverless deploy --aws-profile ${params.profile}"
-        }
-	 dir("${REPO_NAME}") {
-               sh "serverless deploy --aws-profile ${params.profile}"
-        }
+          if(env.WEB_PAGE_DEPLOYMENT_REQUIRED == 'true'){
+                sh 'node generate-form.js'
+           }
+       	   sh "serverless deploy --aws-profile ${params.profile}"
+     }
 }
 
 stage 'Webpage installation'
