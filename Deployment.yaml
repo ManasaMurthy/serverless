@@ -5,7 +5,7 @@ node{
     try{
       git(
           url: "https://gitlab.com/ManasaMurthy/aws-node-simple-http-endpoint",
-          credentialsId: 'ManasaMurthy',
+          credentialsId: 'jenkins-token',
           branch: 'master'
       )
     }catch(Exception e){
