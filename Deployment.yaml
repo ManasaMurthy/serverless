@@ -34,7 +34,7 @@ node{
 stage 'Webpage installation'
 node{
     dir("${REPO_NAME}"){
-        withAWS(credentials: aws-cred) {
+        withAWS(credentials: 'aws-cred') {
 		s3Upload acl: 'Public', bucket: "serverless-pipeline-aws", includePathPattern: '*.html', metadatas: [''],path: env.REPO_NAME, workingDir: "frontend/"
 	}
         
