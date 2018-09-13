@@ -2,7 +2,7 @@
 stage 'Install Project'
 node{
     cleanWs()
-    try{
+   /* try{
       git(
           url: "git@gitlab.com:ManasaMurthy/${REPO_NAME}.git",
           credentialsId: 'jenkins-token',
@@ -11,8 +11,8 @@ node{
     }catch(Exception e){
         currentBuild.result = 'FAILURE'
         throw e
-    }
-    //sh 'git clone git@gitlab.com:ManasaMurthy/${REPO_NAME}.git'
+    }*/
+    sh 'git clone git@gitlab.com:ManasaMurthy/${REPO_NAME}.git'
 }
 
 stage 'Deploy'
