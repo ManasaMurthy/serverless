@@ -24,6 +24,9 @@ node{
                 if(env.WEB_PAGE_DEPLOYMENT_REQUIRED == 'true'){
                     sh 'node generate-form.js'
                 }
+               //sh "serverless deploy --aws-profile ${params.profile}"
+        }
+	 dir("${REPO_NAME}") {
                sh "serverless deploy --aws-profile ${params.profile}"
         }
 }
