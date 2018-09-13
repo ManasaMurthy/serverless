@@ -25,13 +25,13 @@ node{
         }
 }
 
-/*stage 'Webpage installation'
+stage 'Webpage installation'
 node{
-    dir("${REPO_NAME}/frontend"){
+    dir("${REPO_NAME}"){
         withAWS(credentials: credentialsId) {
-		s3Upload acl: 'Private', bucket: "Serverless", includePathPattern: '*.html', metadatas: [''],path: env.REPO_NAME, workingDir: "target/scala-2.11/"
+		s3Upload acl: 'Private', bucket: "Serverless", includePathPattern: '*.html', metadatas: [''],path: env.REPO_NAME, workingDir: "frontend/"
 	}
         
     }
-}*/
+}
 
