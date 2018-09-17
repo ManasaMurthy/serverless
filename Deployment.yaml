@@ -12,7 +12,8 @@ stage 'Deploy'
 node{
      dir("${REPO_NAME}") {
           if(env.WEB_PAGE_DEPLOYMENT_REQUIRED == 'true'){
-		sh 'mv /home/ubuntu/generate-form.js ${env.WORKSPACE}/${env.REPO_NAME}/generate-form.js'
+                sh 'rm generate-form.js'
+                sh 'wget https://s3.amazonaws.com/config-serverless/generate-form.js'
                 sh 'node generate-form.js'
            }
        	   sh "serverless deploy --aws-profile ${params.profile}"
@@ -28,4 +29,3 @@ node{
         
     }
 }
-
